@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://crhmyv00usgh6"]
+
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_gn74r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jdaj"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[node name="Game_Over_Menu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_gn74r")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 325.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jdaj")
+
+[node name="winner_label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -100.0
+offset_right = 232.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 19
+text = "Ang NANALO ay si Player 0!!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 200.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Play Again
+"
+
+[node name="menu_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Main Menu
+"
+
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="menu_button" to="." method="_on_menu_button_pressed"]

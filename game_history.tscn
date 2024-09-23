@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c465kqeitxyu4"]
+
+[ext_resource type="Script" path="res://game_history.gd" id="1_ijvnr"]
+[ext_resource type="PackedScene" uid="uid://cofd60ttcn6b7" path="res://game_entry.tscn" id="2_gdgxv"]
+
+[node name="game_history" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijvnr")
+game_entry_scene = ExtResource("2_gdgxv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="back_button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 15.0
+offset_right = 160.0
+offset_bottom = 65.0
+text = "Back
+"
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

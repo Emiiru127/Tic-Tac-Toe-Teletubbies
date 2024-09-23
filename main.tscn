@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2pwq80qxi8hu"]
+
+[ext_resource type="PackedScene" uid="uid://58qxemvl8nhq" path="res://board.tscn" id="1_6mxp2"]
+[ext_resource type="Script" path="res://main.gd" id="1_e0txd"]
+[ext_resource type="PackedScene" uid="uid://be7rnhd8h15ku" path="res://circle.tscn" id="2_sntf1"]
+[ext_resource type="PackedScene" uid="uid://iwyygblj6f3v" path="res://cross.tscn" id="3_geykq"]
+[ext_resource type="PackedScene" uid="uid://crhmyv00usgh6" path="res://game_over_menu.tscn" id="5_ajebc"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_e0txd")
+circle_scene = ExtResource("2_sntf1")
+cross_scene = ExtResource("3_geykq")
+
+[node name="Board" parent="." instance=ExtResource("1_6mxp2")]
+texture_filter = 1
+position = Vector2(300, 300)
+
+[node name="Side Panel" type="Panel" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 170.0
+offset_right = 900.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 30
+text = "SINO NA:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextPlayerPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 223.0
+offset_top = -75.0
+offset_right = 373.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOvePanel" parent="." instance=ExtResource("5_ajebc")]
+
+[connection signal="go_menu" from="GameOvePanel" to="." method="_on_game_ove_panel_go_menu"]
+[connection signal="restart" from="GameOvePanel" to="." method="_on_game_ove_panel_restart"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cofd60ttcn6b7"]
+
+[ext_resource type="Script" path="res://game_entry.gd" id="1_png31"]
+[ext_resource type="PackedScene" uid="uid://bva17dvafa8js" path="res://game_move.tscn" id="2_unj1d"]
+
+[node name="game_entry" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 262.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_bottom = 80
+script = ExtResource("1_png31")
+game_move_scene = ExtResource("2_unj1d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="game_id" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 15
+text = "Game id: 69
+"
+
+[node name="match_type" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 15
+text = "Match Type: Player vs Player"
+
+[node name="match_result" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 15
+text = "Result: DRAW"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="match_moves" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+text = "Moves: "
+
+[node name="moves_container" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
